@@ -1,0 +1,64 @@
+.calculator {
+    width: 300px;
+    background-color: #eeeeee;
+    overflow: auto;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+
+.row {
+    margin: 10px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+    .row:nth-of-type(1) {
+        margin: 0;
+    }
+
+    .row > div {
+        width: 60px;
+        height: 50px;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 15pt;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        box-sizing: border-box;
+        margin: 0 5px;
+        color: white;
+        background-color: #808080;
+        cursor: pointer;
+    }
+
+    .row .sum_screen {
+        margin: 0;
+        flex: 1 100%;
+        text-align: right;
+        padding: 0 10px;
+        border: none;
+        border-bottom: 2px solid black;
+        border-radius: 0;
+        color: black;
+        background-color: transparent;
+        cursor: default;
+    }
+    .row .clear_btn, .row .number_0 {
+        flex-grow: 1;
+    }
+
+    .row .btn-blue {
+        background-color: dodgerblue;
+    }
+
+    .row .btn-green {
+        background-color: green;
+    }

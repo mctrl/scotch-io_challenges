@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Calculator</title>
+    <meta name="description" content="Flex Box Calculator">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="row">
+            <div class="sum_screen">
+                0
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="clear_btn btn-blue js-item" data-js="clear">C</div>
+            <div class="js-item" data-js="/">÷</div>
+        </div>
+        <div class="row">
+            <div class="js-item" data-js="7">7</div>
+            <div class="js-item" data-js="8">8</div>
+            <div class="js-item" data-js="9">9</div>
+            <div class="js-item" data-js="*">&times;</div>
+        </div>
+        <div class="row">
+            <div class="js-item" data-js="4">4</div>
+            <div class="js-item" data-js="5">5</div>
+            <div class="js-item" data-js="6">6</div>
+            <div class="js-item" data-js="-">-</div>
+        </div>
+        <div class="row">
+            <div class="js-item" data-js="1">1</div>
+            <div class="js-item" data-js="2">2</div>
+            <div class="js-item" data-js="3">3</div>
+            <div class="js-item" data-js="+">+</div>
+        </div>
+        <div class="row">
+            <div class="number_0 js-item" data-js="0">0</div>
+            <div class="btn-green js-item" data-js="eval">=</div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <!--<script src="js/scripts.js"></script>-->
+    <script>
+        var data = [];
+        var number = [];
+        var $display = $('.sum_screen');
+        $('.js-item').click(function() {
+            //console.log('data', $(this).data('js'));
+            var value = $(this).data('js');
+
+            //deals with UI presentation
+            $display.empty()
+            //deals with calculations
+            switch (value) {
+                case 'clear':
+                    data = [];
+                    $display.text('0');
+                break;
+                case 'eval':
+                    var result = eval(data.join(''));
+                    data = [];
+                    $display.text(result);
+                    break;
+                default:
+                    data.push(value);
+                    $display.text(data.join(''));          
+            }
+                
+        })
+
+    </script>
+</body>
+</html>
